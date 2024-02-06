@@ -1,0 +1,17 @@
+# Ignore artifacts:
+build
+coverage
+
+.cache/
+.github/
+.husky/
+.vscode/
+
+node_modules/
+dist
+public/
+yarn.lock
+
+tsconfig.json
+.eslintrc
+*.html
