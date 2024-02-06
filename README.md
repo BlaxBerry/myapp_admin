@@ -2,13 +2,13 @@
 
 ## Repo Links
 
-|                                 Repo                                  | Desc                       |
-| :-------------------------------------------------------------------: | -------------------------- |
-|        [myapp_admin](https://github.com/BlaxBerry/myapp_admin)        | Admin Dashboard Pages      |
-|     [myapp_protobuf](https://github.com/BlaxBerry/myapp_protobuf)     | Protocol Buffers Generator |
-|          [myapp_bff](https://github.com/BlaxBerry/myapp_bff)          | Backend for Frontend       |
-| [myapp_scenario_api](https://github.com/BlaxBerry/myapp_scenario_api) | Scenario App's API Server  |
-|    [myapp_notes_api](https://github.com/BlaxBerry/myapp_notes_api)    | Notes App's API Server     |
+|                                 Repo                                  | Desc                            |                 Domain                  | Port |
+| :-------------------------------------------------------------------: | ------------------------------- | :-------------------------------------: | :--: |
+|        [myapp_admin](https://github.com/BlaxBerry/myapp_admin)        | Admin Dashboard Pages           |     https://myapp-bff.onrender.com      | 3000 |
+|     [myapp_protobuf](https://github.com/BlaxBerry/myapp_protobuf)     | Protocol Buffers Code Generator |                    -                    |  -   |
+|          [myapp_bff](https://github.com/BlaxBerry/myapp_bff)          | Backend for Frontend            |     https://myapp-bff.onrender.com      | 8080 |
+| [myapp_scenario_api](https://github.com/BlaxBerry/myapp_scenario_api) | Scenario App's API Server       | https://myapp-scenario-api.onrender.com | 8000 |
+|    [myapp_notes_api](https://github.com/BlaxBerry/myapp_notes_api)    | Notes App's API Server          |  https://myapp_notes_api.onrender.com   | 8400 |
 
 ## Setup
 
