@@ -25,6 +25,7 @@
     "@tanstack/react-query": "^5.18.1",
     "axios": "^1.6.7",
     "myapp_protobuf": "git+https://github.com/BlaxBerry/myapp_protobuf.git",
+    "myapp_uilib_react": "git+https://github.com/BlaxBerry/myapp_uilib_react.git",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.50.0",
@@ -32,6 +33,7 @@
   },
   "devDependencies": {
     "@tanstack/eslint-plugin-query": "^5.18.1",
+    "@types/google-protobuf": "^3.15.12",
     "@types/node": "^20.11.16",
     "@types/react": "^18.2.43",
     "@types/react-dom": "^18.2.17",
@@ -45,6 +47,7 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.5",
     "eslint-plugin-unused-imports": "^3.0.0",
+    "google-protobuf": "^3.21.2",
     "husky": "^9.0.10",
     "prettier": "3.2.4",
     "prettier-plugin-css-order": "^2.0.1",

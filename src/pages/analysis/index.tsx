@@ -21,7 +21,7 @@ const AnalysisPage: FC = () => {
     queryKey: ["scenarioList"],
     queryFn: async () => {
       try {
-        const res = await apis.getScenarioById("123");
+        const res = await apis.getScenarioList();
         return res.data;
       } catch (error) {
         return error;
@@ -65,8 +65,19 @@ const AnalysisPage: FC = () => {
 
   return (
     <AnalysisPageLayout>
-      <div>GithubRepos: {queryGithubRepos?.data?.data?.length}</div>
-      <div>Scenario List: {queryScenarioList?.data?.data?.length}</div>
+      AnalysisPage
+      <div>
+        GithubRepos:{" "}
+        {queryGithubRepos.isLoading
+          ? "loading..."
+          : queryGithubRepos.data?.data?.length}
+      </div>
+      <div>
+        Scenario List:{" "}
+        {queryScenarioList.isLoading
+          ? "loading..."
+          : queryScenarioList?.data?.data?.length}
+      </div>
     </AnalysisPageLayout>
   );
 };
