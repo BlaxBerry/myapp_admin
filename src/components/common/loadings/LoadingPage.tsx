@@ -1,10 +1,13 @@
+import { AppPageContentWrapper } from "myapp_uilib_react";
 import { memo, type FC } from "react";
 
-const LoadingPage: FC<{
+type Props = {
   /** 加载显示文本 */
   message?: string;
-}> = ({ message = "loading" }) => {
-  return <div>{message}...</div>;
+};
+
+const LoadingPage: FC<Props> = ({ message = "loading" }) => {
+  return <AppPageContentWrapper center>{message}...</AppPageContentWrapper>;
 };
 
 const LoadingPageMemo = memo(LoadingPage);

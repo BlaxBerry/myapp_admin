@@ -3,6 +3,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { RouterProvider } from "react-router-dom";
 
+import { AdminThemeProvider } from "./components/providers";
 import { router } from "./utils/router";
 
 const queryClient = new QueryClient({
@@ -16,7 +17,9 @@ const queryClient = new QueryClient({
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
-      <RouterProvider router={router} />
+      <AdminThemeProvider>
+        <RouterProvider router={router} />
+      </AdminThemeProvider>
     </QueryClientProvider>
   </React.StrictMode>,
 );

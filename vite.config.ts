@@ -60,7 +60,13 @@ export default defineConfig(({ mode }) => {
     },
 
     optimizeDeps: {
-      include: ["react", "react-dom", "react-router-dom", "react-hook-form"],
+      include: [
+        "react",
+        "react-dom",
+        "react-router-dom",
+        "react-hook-form",
+        "myapp_uilib_react",
+      ],
     },
   };
 });

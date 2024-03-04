@@ -1,14 +1,28 @@
 import { type FC } from "react";
-import { Link } from "react-router-dom";
+
+import {
+  AppPageContentWrapper,
+  BaseButton,
+  Paragraph,
+  Title,
+} from "myapp_uilib_react";
+
+import { useAppNavigation } from "@/utils/hooks";
 
 const NotFoundPage: FC = () => {
+  const { backToHomeReplace } = useAppNavigation();
+
   return (
-    <>
-      404 NotFound
-      <Link to="/" replace>
-        <button>Back Home</button>
-      </Link>
-    </>
+    <AppPageContentWrapper center>
+      <Title variant="h2">404</Title>
+      <Paragraph>Page Not Found</Paragraph>
+
+      <br />
+
+      <div>
+        <BaseButton onClick={backToHomeReplace}>Back Home</BaseButton>
+      </div>
+    </AppPageContentWrapper>
   );
 };
 
