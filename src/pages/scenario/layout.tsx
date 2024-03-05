@@ -1,19 +1,25 @@
 import { memo, type FC, type PropsWithChildren } from "react";
+import { ReactFlowProvider } from "reactflow";
 
 import { AppPageContentWrapper } from "myapp_uilib_react";
 
-import SampleDialog from "@/components/common/dialogs/SampleDialog";
+import { ScenarioGraph } from "@/apps/scenario/components";
 
 type Props = PropsWithChildren;
 
 const ScenarioPageLayout: FC<Props> = () => {
   return (
-    <AppPageContentWrapper>
-      ScenarioPage
-      <div>
-        <SampleDialog />
-      </div>
-    </AppPageContentWrapper>
+    <ReactFlowProvider>
+      <AppPageContentWrapper
+        sx={{
+          height: "100%",
+          width: "100%",
+          padding: 0,
+        }}
+      >
+        <ScenarioGraph />
+      </AppPageContentWrapper>
+    </ReactFlowProvider>
   );
 };
 

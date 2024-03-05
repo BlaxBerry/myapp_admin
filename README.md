@@ -2,13 +2,14 @@
 
 ## Repo Links
 
-|                                 Repo                                  | Desc                            |                 Domain                  | Port |
-| :-------------------------------------------------------------------: | ------------------------------- | :-------------------------------------: | :--: |
-|        [myapp_admin](https://github.com/BlaxBerry/myapp_admin)        | Admin Dashboard Pages           |     https://myapp-bff.onrender.com      | 3000 |
-|     [myapp_protobuf](https://github.com/BlaxBerry/myapp_protobuf)     | Protocol Buffers Code Generator |                    -                    |  -   |
-|          [myapp_bff](https://github.com/BlaxBerry/myapp_bff)          | Backend for Frontend            |     https://myapp-bff.onrender.com      | 8080 |
-| [myapp_scenario_api](https://github.com/BlaxBerry/myapp_scenario_api) | Scenario App's API Server       | https://myapp-scenario-api.onrender.com | 8000 |
-|    [myapp_notes_api](https://github.com/BlaxBerry/myapp_notes_api)    | Notes App's API Server          |  https://myapp_notes_api.onrender.com   | 8400 |
+|                                 Repo                                  | Desc                            |                    Domain                     | Port |
+| :-------------------------------------------------------------------: | ------------------------------- | :-------------------------------------------: | :--: |
+|        [myapp_admin](https://github.com/BlaxBerry/myapp_admin)        | Admin Dashboard Pages           |        https://myapp-bff.onrender.com         | 3000 |
+|     [myapp_protobuf](https://github.com/BlaxBerry/myapp_protobuf)     | Protocol Buffers Code Generator |                       -                       |  -   |
+|  [myapp_uilib_react](https://github.com/BlaxBerry/myapp_uilib_react)  | UI Library                      | https://blaxberry.github.io/myapp_uilib_react |  -   |
+|          [myapp_bff](https://github.com/BlaxBerry/myapp_bff)          | Backend for Frontend            |        https://myapp-bff.onrender.com         | 8080 |
+| [myapp_scenario_api](https://github.com/BlaxBerry/myapp_scenario_api) | Scenario App's API Server       |    https://myapp-scenario-api.onrender.com    | 8000 |
+|    [myapp_notes_api](https://github.com/BlaxBerry/myapp_notes_api)    | Notes App's API Server          |     https://myapp_notes_api.onrender.com      | 8400 |
 
 ## Setup
 
@@ -56,8 +57,7 @@ yarn test:ui            # run vitest using UI
 - [react]() v18
 - [react-router-dom]() v6
 - [react-hook-form]() v7
-- react-flow
-- [material ui]() v5
+- [react-flow]() v11
 - storybook
 - [vitest]() v1
 
@@ -74,25 +74,29 @@ yarn test:ui            # run vitest using UI
 │   │   ├── [APP_NAME]/
 │   │   │   ├── components/
 │   │   │   ├── fixtures/
+│   │   │   ├── types/
 │   │   │   └── ...
 │   │   └── ...
 │   ├── assets/
 │   ├── components/
 │   │   ├── common/
+│   │   ├── providers/
 │   │   └── ...
+│   ├── hooks/
 │   ├── pages/
-│   │   ├── root.tsx
 │   │   ├── [leaf].tsx
 │   │   ├── [leaf]
 │   │   │   ├── index.tsx
 │   │   │   └── layout.tsx
 │   │   └── ...
+│   ├── styles/
 │   ├── utils/
 │   │   ├── apis/
+│   │   ├── helpers/
 │   │   ├── hooks/
+│   │   ├── libs/
 │   │   ├── router/
 │   │   ├── store/
-│   │   ├── helpers/
 │   │   └── ...
 │   ├── main.tsx
 │   └── vite-env.d.ts

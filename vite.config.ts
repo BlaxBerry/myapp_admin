@@ -65,6 +65,7 @@ export default defineConfig(({ mode }) => {
         "react-dom",
         "react-router-dom",
         "react-hook-form",
+        "reactflow",
         "myapp_uilib_react",
       ],
     },
