@@ -4,7 +4,7 @@
 
 |                                 Repo                                  | Desc                            |                    Domain                     | Port |
 | :-------------------------------------------------------------------: | ------------------------------- | :-------------------------------------------: | :--: |
-|        [myapp_admin](https://github.com/BlaxBerry/myapp_admin)        | Admin Dashboard Pages           |        https://myapp-bff.onrender.com         | 3000 |
+|        [myapp_admin](https://github.com/BlaxBerry/myapp_admin)        | Admin Dashboard Pages           |        https://myapp-admin.vercel.app         | 3000 |
 |     [myapp_protobuf](https://github.com/BlaxBerry/myapp_protobuf)     | Protocol Buffers Code Generator |                       -                       |  -   |
 |  [myapp_uilib_react](https://github.com/BlaxBerry/myapp_uilib_react)  | UI Library                      | https://blaxberry.github.io/myapp_uilib_react |  -   |
 |          [myapp_bff](https://github.com/BlaxBerry/myapp_bff)          | Backend for Frontend            |        https://myapp-bff.onrender.com         | 8080 |
@@ -109,5 +109,6 @@ yarn test:ui            # run vitest using UI
 ├── tsconfig.node.json
 ├── vite.config.ts
 ├── vitest.config.ts
+├── vercel.json
 └── ...
 ```
