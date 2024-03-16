@@ -1,29 +1,74 @@
-import { memo, type FC, type PropsWithChildren } from "react";
+import { memo, useMemo, type FC, type PropsWithChildren } from "react";
 
-import { AppContentWrapper } from "myapp_uilib_react";
+import { AdminLayout } from "myapp_uilib_react";
 
-import { AppHeaderBar, AppSideMenuBar } from "@/components/common/bars";
-import { APP_STYLES } from "@/styles/index.style";
+import { useAppNavigation } from "@/utils/hooks";
+import {
+  NAVIGATION_ITEMS,
+  type AppNavigationItem,
+} from "@/utils/hooks/useAppNavigation";
 
 const RootPageLayout: FC<PropsWithChildren> = ({ children }) => {
+  const { navigationLinks, backToHome } = useAppNavigation();
+  const currentRoute = navigationLinks.find((item) => item.isActive);
+
+  const headerBreadcrumbs = useMemo<Array<AppNavigationItem>>(() => {
+    const HomeRoute = NAVIGATION_ITEMS[0] as unknown as AppNavigationItem;
+    if (currentRoute?.id === HomeRoute.id || !currentRoute) {
+      return [HomeRoute];
+    } else {
+      return [HomeRoute, currentRoute];
+    }
+  }, [currentRoute]);
+
   return (
-    <>
-      {/* header */}
-      <AppHeaderBar />
-
-      <AppContentWrapper
-        containerMaxWidth={APP_STYLES.APP_CONTENT_CONTAINER_WIDTH}
-        height={APP_STYLES.APP_CONTENT_HEIGHT}
-      >
-        {/* side menu */}
-        <AppSideMenuBar />
-
-        {/* content */}
-        <div style={{ flex: 1 }}>{children}</div>
-      </AppContentWrapper>
-
-      {/* footer */}
-    </>
+    <AdminLayout
+      appSideNavProps={{
+        logo: {
+          url: import.meta.env.VITE_APP_FAVICON_URL,
+          text: import.meta.env.VITE_APP_NAME,
+          onClick: backToHome,
+        },
+        navigation: { list: navigationLinks },
+      }}
+      appHeaderProps={{
+        headerBreadcrumbs: {
+          list: headerBreadcrumbs,
+        },
+        headAccount: {
+          avatarProps: {
+            alt: "Account",
+            src: "https://avatars.githubusercontent.com/u/73395592?v=4",
+          },
+          listProps: {
+            listSubheader: {
+              children: "blaxberry@123.example.com",
+            },
+            data: [
+              {
+                id: "edit-account",
+                text: "编辑资料",
+                onClick: () => {},
+              },
+            ],
+            extraData: [
+              {
+                id: "exit-account",
+                text: "退出登陆",
+                onClick: () => {},
+              },
+            ],
+          },
+        },
+      }}
+      appFooterProps={{
+        copyright: "©2024 BlaxBerry All Rights Reserved",
+        socialLinks: ["github", "x"],
+      }}
+      handleRefreshPageContentData={() => {}}
+    >
+      {children}
+    </AdminLayout>
   );
 };
 

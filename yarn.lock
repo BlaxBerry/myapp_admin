@@ -5611,7 +5611,7 @@ ms@2.1.3:
 
 "myapp_uilib_react@git+https://github.com/BlaxBerry/myapp_uilib_react":
   version "0.0.0"
-  resolved "git+https://github.com/BlaxBerry/myapp_uilib_react#3d71af4e3de729bf3e40a6aa5163728e27f2a4a0"
+  resolved "git+https://github.com/BlaxBerry/myapp_uilib_react#4fccf9334e4854d6e7c7bd077f7b9a7d602f3ea5"
   dependencies:
     "@emotion/react" "^11.11.3"
     "@emotion/styled" "^11.11.0"

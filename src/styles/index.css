@@ -1,0 +1,5 @@
+html {
+  /* disabling pull to refresh */
+  overflow: hidden;
+  overscroll-behavior: none;
+}

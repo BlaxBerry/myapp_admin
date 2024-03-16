@@ -1,13 +1,13 @@
 import { Suspense, type FC } from "react";
 import { Outlet } from "react-router-dom";
 
-import { LoadingPage } from "@/components/common/loadings";
+import { LoadingDialog } from "@/common/components";
 import RootPageLayout from "./layout";
 
 const RootPage: FC = () => {
   return (
     <RootPageLayout>
-      <Suspense fallback={<LoadingPage />}>
+      <Suspense fallback={<LoadingDialog isOpen message="Loading..." />}>
         <Outlet />
       </Suspense>
     </RootPageLayout>

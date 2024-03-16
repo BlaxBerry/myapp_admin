@@ -1,14 +1,16 @@
 import { memo, useCallback, useState, type FC } from "react";
 import ReactFlow, {
-  Background,
-  BackgroundVariant,
-  Controls,
-  MiniMap,
-  Panel,
   addEdge,
   applyEdgeChanges,
   applyNodeChanges,
+  Background,
+  BackgroundVariant,
+  ConnectionLineType,
+  Controls,
   getOutgoers,
+  MarkerType,
+  MiniMap,
+  Panel,
   useReactFlow,
   type Connection,
   type Edge,
@@ -19,25 +21,22 @@ import ReactFlow, {
 } from "reactflow";
 import "reactflow/dist/style.css";
 
-import type { Scenario } from "../../types";
+import "@/styles/over_reactflow.css";
+
+import { MOCK_INITIAL_EDGES, MOCK_INITIAL_NODES } from "../../__mocks__";
 import { SCENARIO_NODE_TYPES } from "../CustomNodes";
-import ScenarioSideMenu from "../ScenarioSideMenu";
+import { CUSTOM_CONNECTION_HANDLE_WIDTH } from "../index.styles";
+import {
+  SideMenuToggleButton,
+  type SideMenuToggleButtonProps,
+} from "../ScenarioSideMenu/widgets";
 
-const initialNodes: Scenario.CustomNode[] = [
-  { id: "0", type: "start", data: {}, position: { x: 100, y: 50 } },
-  { id: "3", type: "message", data: {}, position: { x: 350, y: 300 } },
-  {
-    id: "4",
-    type: "message",
-    data: { logicData: { isInvalid: true, nodeType: "message" } },
-    position: { x: 100, y: 400 },
-  },
-  { id: "5", type: "html", data: {}, position: { x: 100, y: 250 } },
-];
+const initialNodes = [...MOCK_INITIAL_NODES];
+const initialEdges = [...MOCK_INITIAL_EDGES];
 
-const initialEdges: Edge[] = [{ id: "e1-2", source: "1", target: "2" }];
-
-const ScenarioGraph: FC = () => {
+const ScenarioGraph: FC<{
+  sideMenuToggleButton: SideMenuToggleButtonProps;
+}> = ({ sideMenuToggleButton }) => {
   const [nodes, setNodes] = useState<Node[]>(initialNodes);
   const [edges, setEdges] = useState<Edge[]>(initialEdges);
 
@@ -56,6 +55,7 @@ const ScenarioGraph: FC = () => {
     [setEdges],
   );
 
+  // avoid connecting self
   const isValidConnection = useCallback(
     (connection: Connection) => {
       // using getNodes and getEdges helpers here to make sure create isValidConnection function only once
@@ -81,28 +81,67 @@ const ScenarioGraph: FC = () => {
   );
 
   return (
-    <ReactFlow
-      nodes={nodes}
-      edges={edges}
-      onNodesChange={onNodesChange}
-      onEdgesChange={onEdgesChange}
-      onConnect={onConnect}
-      isValidConnection={isValidConnection}
-      nodeTypes={SCENARIO_NODE_TYPES}
-      proOptions={{ hideAttribution: true }}
-      onlyRenderVisibleElements
-      minZoom={0.1}
-    >
-      <Background color="#ccc" variant={BackgroundVariant.Dots} />
+    <div style={{ width: "100%", height: "100%" }}>
+      <ReactFlow
+        nodes={nodes}
+        edges={edges}
+        onNodesChange={onNodesChange}
+        onEdgesChange={onEdgesChange}
+        onConnect={onConnect}
+        isValidConnection={isValidConnection}
+        // onlyRenderVisibleElements
+        nodeTypes={SCENARIO_NODE_TYPES}
+        defaultEdgeOptions={{
+          animated: true,
+          style: {
+            strokeWidth: 2,
+            // stroke: "#FF0072",
+          },
+          markerEnd: {
+            type: MarkerType.Arrow,
+            width: 20,
+            height: 20,
+            // color: "#FF0072",
+          },
+        }}
+        connectionLineType={ConnectionLineType.Bezier}
+        connectionLineStyle={{
+          strokeWidth: 2,
+          // stroke: "#FF0072",
+        }}
+        connectionRadius={CUSTOM_CONNECTION_HANDLE_WIDTH}
+        proOptions={{ hideAttribution: true }}
+        minZoom={0.1}
+        maxZoom={2}
+        snapToGrid
+        snapGrid={[10, 10]}
+      >
+        <Background color="#ccc" variant={BackgroundVariant.Dots} />
 
-      <Controls position="top-left" />
+        <Controls position="top-left" style={{ top: -15, marginLeft: 0 }} />
 
-      <MiniMap position="bottom-left" />
+        <Panel
+          position="top-left"
+          style={{ top: "50%", marginLeft: 0, transform: "translateY(-50%)" }}
+        >
+          <SideMenuToggleButton {...sideMenuToggleButton} />
+        </Panel>
 
-      <Panel position="top-right" style={{ margin: 0 }}>
-        <ScenarioSideMenu />
-      </Panel>
-    </ReactFlow>
+        <MiniMap
+          position="bottom-right"
+          pannable
+          // nodeStrokeColor={(n) => {
+          //   if (n.type === "input") return "#0041d0";
+          //   if (n.type === "selectorNode") return bgColor;
+          //   if (n.type === "output") return "#ff0072";
+          // }}
+          // nodeColor={(n) => {
+          //   if (n.type === "selectorNode") return bgColor;
+          //   return "#fff";
+          // }}
+        />
+      </ReactFlow>
+    </div>
   );
 };
 

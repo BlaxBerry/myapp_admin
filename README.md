@@ -78,8 +78,8 @@ yarn test:ui            # run vitest using UI
 │   │   │   └── ...
 │   │   └── ...
 │   ├── assets/
-│   ├── components/
-│   │   ├── common/
+│   ├── common/
+│   │   ├── components/
 │   │   ├── providers/
 │   │   └── ...
 │   ├── hooks/

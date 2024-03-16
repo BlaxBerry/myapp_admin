@@ -1,88 +1,60 @@
-import { memo, type FC, type PropsWithChildren } from "react";
-import { CgArrowsExpandLeft } from "react-icons/cg";
-import { IoIosWarning } from "react-icons/io";
-
-import { Handle, NodeResizeControl, Position } from "reactflow";
-import type { Scenario } from "../../types";
 import {
-  CUSTOM_NODE_HANDLE_STYLES,
-  CUSTOM_NODE_HEIGHT,
-  CUSTOM_NODE_WIDTH,
-  getCustomNodeStyle,
-} from "../CustomNodes/index.styles";
+  memo,
+  useMemo,
+  type CSSProperties,
+  type FC,
+  type PropsWithChildren,
+} from "react";
+import { Handle, Position } from "reactflow";
+
+import type { Scenario } from "../../types";
+import { CUSTOM_NODE_HANDLE_STYLES, getCustomNodeStyle } from "../index.styles";
+import {
+  CustomNodeHeadInfo,
+  CustomNodeResizer,
+  CustomNodeWarningMessage,
+} from "./widgets";
 
 type Props = PropsWithChildren<
-  Pick<Scenario.CustomNodeWrapperProps, "id" | "selected" | "data">
+  Pick<Scenario.CustomNodeWrapperProps, "id" | "selected" | "data"> // avoid re-render
 >;
 
 const CustomNodeWrapper: FC<Props> = ({ children, id, selected, data }) => {
-  const isInvalid = data?.logicData?.isInvalid;
   const nodeType = data?.logicData?.nodeType;
-
+  const isInvalid = data?.logicData?.isInvalid;
   const isStartNode = nodeType === "start";
-  const couldResizeNode = nodeType === "message";
+  const couldResizeNode = nodeType === "message"; // FIXME:
+
+  const customNodeWrapperStyle = useMemo<CSSProperties>(
+    () => getCustomNodeStyle({ selected, isInvalid, couldResizeNode }),
+    [selected, isInvalid, couldResizeNode],
+  );
 
   return (
     <>
-      <div style={getCustomNodeStyle({ selected, isInvalid, couldResizeNode })}>
-        {isInvalid && (
-          <div
-            style={{
-              position: "absolute",
-              top: -24,
-              left: 5,
-              display: "flex",
-              alignItems: "center",
-            }}
-          >
-            <IoIosWarning />
-            <small style={{ marginLeft: 4 }}>Node Data Is Not Valid</small>
-          </div>
-        )}
-        {!isStartNode && (
-          <small style={{ position: "absolute", top: 5, left: 10 }}>
-            ID: {id}
-          </small>
-        )}
+      <div style={customNodeWrapperStyle}>
+        {isInvalid && <CustomNodeWarningMessage />}
+        {!isStartNode && selected && <CustomNodeHeadInfo id={id} />}
         <div>{children}</div>
       </div>
 
-      {/* start connection dot */}
+      {/* left position's connection handle dot */}
       {!isStartNode && (
         <Handle
           type="target"
           position={Position.Left}
-          style={{ ...CUSTOM_NODE_HANDLE_STYLES, left: -6 }}
+          style={CUSTOM_NODE_HANDLE_STYLES.targetLeft}
         />
       )}
-      {/* end connection dot */}
+      {/* right position's connection handle dot */}
       <Handle
         type="source"
         position={Position.Right}
-        style={{ ...CUSTOM_NODE_HANDLE_STYLES, right: -6 }}
+        style={CUSTOM_NODE_HANDLE_STYLES.sourceRight}
       />
 
       {/* resize node size */}
-      {couldResizeNode && (
-        <NodeResizeControl
-          minWidth={CUSTOM_NODE_WIDTH}
-          minHeight={CUSTOM_NODE_HEIGHT}
-          style={{
-            background: "transparent",
-            border: "none",
-            zIndex: 1,
-          }}
-        >
-          <CgArrowsExpandLeft
-            style={{
-              color: "#ff0071",
-              position: "absolute",
-              right: 5,
-              bottom: 5,
-            }}
-          />
-        </NodeResizeControl>
-      )}
+      {couldResizeNode && <CustomNodeResizer />}
     </>
   );
 };

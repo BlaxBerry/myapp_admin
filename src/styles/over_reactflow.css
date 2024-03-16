@@ -1,0 +1,12 @@
+.react-flow__controls {
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgba(0, 0, 0, 0.12);
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.react-flow__controls-button {
+  width: 25px;
+  height: 25px;
+}

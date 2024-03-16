@@ -2,9 +2,10 @@ import type { CSSProperties } from "react";
 
 export const CUSTOM_NODE_WIDTH = 200;
 export const CUSTOM_NODE_HEIGHT = 100;
+export const CUSTOM_CONNECTION_HANDLE_WIDTH = 30;
 
 /** custom node's styles */
-export const CUSTOM_NODE_STYLES: CSSProperties = {
+const CUSTOM_NODE_STYLES: CSSProperties = {
   boxSizing: "border-box",
   position: "relative",
   display: "flex",
@@ -31,7 +32,6 @@ export const getCustomNodeStyle = ({
   minHeight: CUSTOM_NODE_HEIGHT,
   width: couldResizeNode ? "100%" : CUSTOM_NODE_WIDTH,
   height: couldResizeNode ? "100%" : CUSTOM_NODE_HEIGHT,
-
   color: isInvalid ? "red" : "#222",
   borderColor: isInvalid ? "red" : selected ? "black" : "#858585",
   backgroundColor: selected ? "white" : "#f0f0f0",
@@ -39,10 +39,24 @@ export const getCustomNodeStyle = ({
 });
 
 /** custom node's handle's ( connection dot ) styles */
-export const CUSTOM_NODE_HANDLE_STYLES: CSSProperties = {
-  width: 15,
-  height: 15,
+const CUSTOM_NODE_HANDLE_COMMON_STYLES: CSSProperties = {
+  width: CUSTOM_CONNECTION_HANDLE_WIDTH, // for comfortable touch device
+  height: CUSTOM_CONNECTION_HANDLE_WIDTH, // for comfortable touch device
   zIndex: 1,
   background: "#858585",
   border: "2px solid white",
+  borderRadius: 3,
+};
+
+export const CUSTOM_NODE_HANDLE_STYLES = {
+  /** left position's target handle */
+  targetLeft: {
+    ...CUSTOM_NODE_HANDLE_COMMON_STYLES,
+    left: -CUSTOM_CONNECTION_HANDLE_WIDTH / 2,
+  },
+  /** right position's source handle */
+  sourceRight: {
+    ...CUSTOM_NODE_HANDLE_COMMON_STYLES,
+    right: -CUSTOM_CONNECTION_HANDLE_WIDTH / 2,
+  },
 };
