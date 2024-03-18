@@ -7,7 +7,7 @@
 |        [myapp_admin](https://github.com/BlaxBerry/myapp_admin)        | Admin Dashboard Pages           |        https://myapp-admin.vercel.app         | 3000 |
 |     [myapp_protobuf](https://github.com/BlaxBerry/myapp_protobuf)     | Protocol Buffers Code Generator |                       -                       |  -   |
 |  [myapp_uilib_react](https://github.com/BlaxBerry/myapp_uilib_react)  | UI Library                      | https://blaxberry.github.io/myapp_uilib_react |  -   |
-|          [myapp_bff](https://github.com/BlaxBerry/myapp_bff)          | Backend for Frontend            |        https://myapp-bff.onrender.com         | 8080 |
+|          [myapp_bff](https://github.com/BlaxBerry/myapp_bff)          | Backend for Frontend            |         https://myapp-bff.vercel.app          | 8080 |
 | [myapp_scenario_api](https://github.com/BlaxBerry/myapp_scenario_api) | Scenario App's API Server       |    https://myapp-scenario-api.onrender.com    | 8000 |
 |    [myapp_notes_api](https://github.com/BlaxBerry/myapp_notes_api)    | Notes App's API Server          |     https://myapp_notes_api.onrender.com      | 8400 |
 

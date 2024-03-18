@@ -1,4 +1,5 @@
-import axiosInstance from "../libs/axiosInstance";
+import axiosInstance from "../../utils/libs/axiosInstance";
+import { ENTRYPOINTS } from "../entrypoints";
 
 /**
  * @description 获取个人 Github 账号的信息
@@ -7,8 +8,7 @@ import axiosInstance from "../libs/axiosInstance";
  * ```
  */
 const getGithubUser = () => {
-  const url = "api/others/github/user";
-  return axiosInstance.get(url);
+  return axiosInstance.get(ENTRYPOINTS.OTHERS.getGithubUser);
 };
 
 /**
@@ -16,13 +16,21 @@ const getGithubUser = () => {
  * @example
  * ```ts
  * const { data } = await getGithubRepos();
+ * ```
+ */
+const getGithubRepos = () => {
+  return axiosInstance.get(ENTRYPOINTS.OTHERS.getGithubRepos);
+};
+
+/**
+ * @description 获取个人 Github 仓库的信息
+ * @example
+ * ```ts
  * const { data } = await getGithubRepos({ repoName: "portfolio" });
  * ```
  */
-const getGithubRepos = (param?: { repoName: string }) => {
-  const url = param?.repoName
-    ? `api/others/github/repos?name=${param.repoName}`
-    : `api/others/github/repos`;
+const getGithubReposByName = (param: { repoName: string }) => {
+  const url = ENTRYPOINTS.OTHERS.getGithubRepoByName(param.repoName);
 
   return axiosInstance.get(url);
 };
@@ -35,12 +43,13 @@ const getGithubRepos = (param?: { repoName: string }) => {
  * ```
  */
 const getGithubRepoLanguages = (repoName: string) => {
-  const url = `api/others/github/${repoName}/languages`;
+  const url = ENTRYPOINTS.OTHERS.getGithubRepoLanguages(repoName);
   return axiosInstance.get(url);
 };
 
 export default {
   getGithubUser,
   getGithubRepos,
+  getGithubReposByName,
   getGithubRepoLanguages,
 };
