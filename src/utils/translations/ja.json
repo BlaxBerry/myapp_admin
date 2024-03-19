@@ -1,0 +1,21 @@
+{
+  "common": {
+    "languages": {
+      "en": "英語",
+      "ja": "日本語",
+      "zh": "中国語"
+    }
+  },
+  "pages": {
+    "home": "ホーム",
+    "analysis": "アナリシス",
+    "scenario": "シナリオ",
+    "chat": "チャット",
+    "notes": "ノーツ"
+  },
+  "account": {
+    "edit": "編集",
+    "login": "ログイン",
+    "logout": "ログアウト"
+  }
+}

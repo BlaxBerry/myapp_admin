@@ -1,10 +1,11 @@
 import {
-  BaseIconButton,
+  BaseAccordion,
+  BaseButton,
   BaseList,
   BasePaper,
-  BaseParagraph,
 } from "myapp_uilib_react";
 import { memo, type FC } from "react";
+import { AiOutlineClear } from "react-icons/ai";
 import { FaRegSave } from "react-icons/fa";
 import { FaCircleNodes } from "react-icons/fa6";
 import { RiFolderDownloadLine, RiFolderUploadLine } from "react-icons/ri";
@@ -22,7 +23,7 @@ const data = [
   },
 ];
 
-const SCENARIO_SIDE_MENU_WIDTH = 150;
+const SCENARIO_SIDE_MENU_WIDTH = 200;
 
 const ScenarioSideMenu: FC<{
   isShowSideMenu: boolean;
@@ -42,7 +43,7 @@ const ScenarioSideMenu: FC<{
       contentProps={{
         style: {
           height: "100%",
-          padding: 8,
+          padding: 0,
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
@@ -52,25 +53,46 @@ const ScenarioSideMenu: FC<{
       }}
     >
       <div style={{ flex: 1, width: "100%", overflowY: "scroll" }}>
-        <BaseParagraph textAlign="center" sx={{ py: 2 }}>
-          Node List
-        </BaseParagraph>
-        <BaseList data={data} />
+        <BaseAccordion
+          defaultExpanded
+          title="Nodes Group 1"
+          accordionDetailsProps={{ sx: { p: 1 } }}
+        >
+          <BaseList
+            data={data}
+            listItemButtonProps={{
+              disableRipple: true, // https://github.com/react-dnd/react-dnd/issues/832
+              draggable: true,
+              onDragStart: (e) => {
+                e.stopPropagation();
+                // ...
+              },
+            }}
+          />
+        </BaseAccordion>
       </div>
 
-      <div style={{ width: "100%" }}>
-        <BaseIconButton sx={{ width: "100%", borderRadius: "16px" }}>
+      <div style={{ width: "100%", padding: 8 }}>
+        <BaseButton sx={{ width: "100%", borderRadius: "16px", mb: 0.5 }}>
           <RiFolderUploadLine style={{ fontSize: 23 }} />
-        </BaseIconButton>
-        <BaseIconButton sx={{ width: "100%", borderRadius: "16px", my: 0.5 }}>
+        </BaseButton>
+        <BaseButton sx={{ width: "100%", borderRadius: "16px", mb: 0.5 }}>
           <RiFolderDownloadLine style={{ fontSize: 23 }} />
-        </BaseIconButton>
-        <BaseIconButton
+        </BaseButton>
+
+        <BaseButton
+          variant="contained"
+          color="error"
+          sx={{ width: "100%", borderRadius: "16px", mb: 0.5 }}
+        >
+          <AiOutlineClear style={{ fontSize: 25 }} />
+        </BaseButton>
+        <BaseButton
           variant="contained"
           sx={{ width: "100%", borderRadius: "16px" }}
         >
           <FaRegSave style={{ fontSize: 20 }} />
-        </BaseIconButton>
+        </BaseButton>
       </div>
     </BasePaper>
   );

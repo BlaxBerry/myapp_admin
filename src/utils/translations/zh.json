@@ -1,0 +1,21 @@
+{
+  "common": {
+    "languages": {
+      "en": "英语",
+      "ja": "日语",
+      "zh": "中文"
+    }
+  },
+  "pages": {
+    "home": "首页",
+    "analysis": "数据分析",
+    "scenario": "流程计划",
+    "chat": "聊天通信",
+    "notes": "笔记本"
+  },
+  "account": {
+    "edit": "编辑",
+    "login": "登陆",
+    "logout": "登出"
+  }
+}

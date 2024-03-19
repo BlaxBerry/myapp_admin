@@ -30,8 +30,8 @@ export namespace Scenario {
    */
   export type CustomNodeFormData = {
     id: string;
-    name: string;
     title: string;
+    data: unknown; // TODO:
   };
 
   /**

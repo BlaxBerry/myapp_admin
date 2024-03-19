@@ -24,7 +24,7 @@ const ScenarioPageLayout: FC<Props> = () => {
     <BasePaper
       wrapperProps={{
         style: {
-          height: "calc(100vh - 220px)",
+          height: "calc(100vh - 203px)",
           width: "100%",
           padding: 0,
           overflow: "hidden",

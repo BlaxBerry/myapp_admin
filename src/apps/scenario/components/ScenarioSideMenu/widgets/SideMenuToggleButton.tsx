@@ -1,4 +1,4 @@
-import { BaseIconButton } from "myapp_uilib_react";
+import { BaseButton } from "myapp_uilib_react";
 import { memo, type FC } from "react";
 import { RiArrowLeftDoubleLine, RiArrowRightDoubleLine } from "react-icons/ri";
 
@@ -12,7 +12,7 @@ const SideMenuToggleButton: FC<SideMenuToggleButtonProps> = ({
   toggleSideMenu,
 }) => {
   return (
-    <BaseIconButton
+    <BaseButton
       onClick={toggleSideMenu}
       style={{
         backgroundColor: "#fff",
@@ -25,7 +25,7 @@ const SideMenuToggleButton: FC<SideMenuToggleButtonProps> = ({
       ) : (
         <RiArrowRightDoubleLine style={{ fontSize: 20 }} />
       )}
-    </BaseIconButton>
+    </BaseButton>
   );
 };
 

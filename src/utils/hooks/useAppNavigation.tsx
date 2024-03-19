@@ -1,8 +1,14 @@
 import { useCallback, useMemo } from "react";
-import { FiHome } from "react-icons/fi";
-import { LuWorkflow } from "react-icons/lu";
-import { TbBrandGoogleAnalytics } from "react-icons/tb";
+import { useTranslation } from "react-i18next";
 import { useLocation, useNavigate } from "react-router-dom";
+
+import { FiHome } from "react-icons/fi";
+import { GrAnalytics } from "react-icons/gr";
+import { LuWorkflow } from "react-icons/lu";
+import { PiChatsBold } from "react-icons/pi";
+import { TbBrandDatabricks } from "react-icons/tb";
+
+import { APP_PATHS } from "@/router/paths";
 
 export type AppNavigationItem = {
   id: string;
@@ -12,30 +18,9 @@ export type AppNavigationItem = {
   onClick: () => void;
 };
 
-export const NAVIGATION_ITEMS: Array<
-  Pick<AppNavigationItem, "id" | "text" | "icon"> & { link: string }
-> = [
-  {
-    link: "/",
-    id: "Home",
-    text: "Home",
-    icon: <FiHome style={{ fontSize: 20 }} />,
-  },
-  {
-    link: "/analysis",
-    id: "Analysis",
-    text: "Analysis",
-    icon: <TbBrandGoogleAnalytics style={{ fontSize: 20 }} />,
-  },
-  {
-    link: "/scenario",
-    id: "Scenario",
-    text: "Scenario",
-    icon: <LuWorkflow style={{ fontSize: 20 }} />,
-  },
-];
-
 export default function useAppNavigation() {
+  const { t } = useTranslation();
+
   const navigate = useNavigate();
   const { pathname } = useLocation();
 
@@ -45,9 +30,40 @@ export default function useAppNavigation() {
     [navigate],
   );
 
-  const navigationLinks = useMemo<Array<AppNavigationItem>>(
+  const appNavigationLinks = useMemo<Array<AppNavigationItem>>(
     () =>
-      NAVIGATION_ITEMS.map((item) => {
+      [
+        {
+          link: APP_PATHS.home,
+          id: "pages-home",
+          text: t("pages.home"),
+          icon: <FiHome style={{ fontSize: 20 }} />,
+        },
+        {
+          link: APP_PATHS.analysis.root,
+          id: "pages-analysis",
+          text: t("pages.analysis"),
+          icon: <GrAnalytics style={{ fontSize: 20 }} />,
+        },
+        {
+          link: APP_PATHS.scenario.root,
+          id: "pages-scenario",
+          text: t("pages.scenario"),
+          icon: <LuWorkflow style={{ fontSize: 20 }} />,
+        },
+        {
+          link: APP_PATHS.chat.root,
+          id: "pages-chat",
+          text: t("pages.chat"),
+          icon: <PiChatsBold style={{ fontSize: 20 }} />,
+        },
+        {
+          link: APP_PATHS.notes.root,
+          id: "pages-notes",
+          text: t("pages.notes"),
+          icon: <TbBrandDatabricks style={{ fontSize: 20 }} />,
+        },
+      ].map((item) => {
         return {
           id: item.id,
           text: item.text,
@@ -56,11 +72,11 @@ export default function useAppNavigation() {
           onClick: () => navigate(item.link),
         };
       }),
-    [pathname, navigate],
+    [pathname, navigate, t],
   );
 
   return {
-    navigationLinks,
+    appNavigationLinks,
     backToHome,
     backToHomeReplace,
   };

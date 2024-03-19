@@ -1,6 +1,6 @@
 import { type FC } from "react";
 
-import { BaseIconButton, BaseParagraph } from "myapp_uilib_react";
+import { BaseButton, BaseParagraph } from "myapp_uilib_react";
 
 import { AppFullPageContentLayout } from "@/common/layouts";
 import { useAppNavigation } from "@/utils/hooks";
@@ -23,12 +23,12 @@ const NotFoundPage: FC = () => {
         The Requested URL was not found on this server
       </BaseParagraph>
 
-      <BaseIconButton
+      <BaseButton
         onClick={backToHomeReplace}
         sx={{ width: 120, borderRadius: "16px" }}
       >
         Back Home
-      </BaseIconButton>
+      </BaseButton>
     </AppFullPageContentLayout>
   );
 };

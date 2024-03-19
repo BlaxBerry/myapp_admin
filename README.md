@@ -1,4 +1,4 @@
-# Admin Dashboard
+# MyApp Admin Dashboard
 
 ## Repo Links
 
@@ -58,7 +58,6 @@ yarn test:ui            # run vitest using UI
 - [react-router-dom]() v6
 - [react-hook-form]() v7
 - [react-flow]() v11
-- storybook
 - [vitest]() v1
 
 ## Project Structure

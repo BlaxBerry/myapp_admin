@@ -120,10 +120,7 @@ const ScenarioGraph: FC<{
 
         <Controls position="top-left" style={{ top: -15, marginLeft: 0 }} />
 
-        <Panel
-          position="top-left"
-          style={{ top: "50%", marginLeft: 0, transform: "translateY(-50%)" }}
-        >
+        <Panel position="top-left" style={{ top: 140, marginLeft: 0 }}>
           <SideMenuToggleButton {...sideMenuToggleButton} />
         </Panel>
 
