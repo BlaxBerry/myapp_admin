@@ -1,20 +1,11 @@
-import {
-  memo,
-  startTransition,
-  useCallback,
-  useState,
-  type FC,
-  type PropsWithChildren,
-} from "react";
+import { memo, startTransition, useCallback, useState, type FC } from "react";
 import { ReactFlowProvider } from "reactflow";
 
 import { BasePaper } from "myapp_uilib_react";
 
 import { ScenarioGraph, ScenarioSideMenu } from "@/apps/scenario/components";
 
-type Props = PropsWithChildren;
-
-const ScenarioPageLayout: FC<Props> = () => {
+const ScenarioPageLayout: FC = () => {
   const [isShowSideMenu, setIsShowSideMenu] = useState<boolean>(false);
   const toggleSideMenu = useCallback(() => {
     startTransition(() => setIsShowSideMenu((s) => !s));

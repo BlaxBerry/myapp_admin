@@ -1,1 +1,2 @@
-export { default as LoadingDialog } from "./loadings/LoadingDialog";
+export * from "./loadings";
+export * from "./paragraphs";

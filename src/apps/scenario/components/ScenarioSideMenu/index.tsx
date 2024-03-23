@@ -1,25 +1,24 @@
+import { memo, type FC } from "react";
+import { AiOutlineClear } from "react-icons/ai";
+import { FaRegSave } from "react-icons/fa";
+import { RiFolderDownloadLine, RiFolderUploadLine } from "react-icons/ri";
+
 import {
   BaseAccordion,
   BaseButton,
   BaseList,
+  BaseListItem,
   BasePaper,
 } from "myapp_uilib_react";
-import { memo, type FC } from "react";
-import { AiOutlineClear } from "react-icons/ai";
-import { FaRegSave } from "react-icons/fa";
-import { FaCircleNodes } from "react-icons/fa6";
-import { RiFolderDownloadLine, RiFolderUploadLine } from "react-icons/ri";
 
 const data = [
   {
     id: "message",
     text: "Message",
-    icon: <FaCircleNodes />,
   },
   {
     id: "html",
     text: "HTML",
-    icon: <FaCircleNodes />,
   },
 ];
 
@@ -58,17 +57,28 @@ const ScenarioSideMenu: FC<{
           title="Nodes Group 1"
           accordionDetailsProps={{ sx: { p: 1 } }}
         >
-          <BaseList
-            data={data}
-            listItemButtonProps={{
-              disableRipple: true, // https://github.com/react-dnd/react-dnd/issues/832
-              draggable: true,
-              onDragStart: (e) => {
-                e.stopPropagation();
-                // ...
-              },
-            }}
-          />
+          <BaseList>
+            {data.map((item) => (
+              <BaseListItem
+                key={item.id}
+                primaryContent={item.text}
+                listItemButtonProps={{
+                  disableRipple: true, // https://github.com/react-dnd/react-dnd/issues/832
+                  disableTouchRipple: true,
+                  style: { cursor: "grab" },
+                  draggable: true,
+                  onDragStart: (e) => {
+                    e.stopPropagation();
+                    // console.log("onDragStart");
+                  },
+                  onDragEnd: (e) => {
+                    e.stopPropagation();
+                    // console.log("onDragEnd");
+                  },
+                }}
+              />
+            ))}
+          </BaseList>
         </BaseAccordion>
       </div>
 

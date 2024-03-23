@@ -1,5 +1,5 @@
-import { BaseButton } from "myapp_uilib_react";
-import { memo, type FC } from "react";
+import { BaseIconButton } from "myapp_uilib_react";
+import { memo, type CSSProperties, type FC } from "react";
 import { RiArrowLeftDoubleLine, RiArrowRightDoubleLine } from "react-icons/ri";
 
 export type SideMenuToggleButtonProps = {
@@ -7,25 +7,31 @@ export type SideMenuToggleButtonProps = {
   toggleSideMenu: () => void;
 };
 
+const commonIconStyle: CSSProperties = {
+  color: "inherit",
+  fontWeight: 600,
+  fontSize: 25,
+};
+
 const SideMenuToggleButton: FC<SideMenuToggleButtonProps> = ({
   isShowSideMenu,
   toggleSideMenu,
 }) => {
   return (
-    <BaseButton
+    <BaseIconButton
       onClick={toggleSideMenu}
       style={{
         backgroundColor: "#fff",
         borderColor: "rgba(0, 0, 0, 0.12)",
-        borderRadius: 14,
+        color: "black",
       }}
     >
       {isShowSideMenu ? (
-        <RiArrowLeftDoubleLine style={{ fontSize: 20 }} />
+        <RiArrowLeftDoubleLine style={commonIconStyle} />
       ) : (
-        <RiArrowRightDoubleLine style={{ fontSize: 20 }} />
+        <RiArrowRightDoubleLine style={commonIconStyle} />
       )}
-    </BaseButton>
+    </BaseIconButton>
   );
 };
 
