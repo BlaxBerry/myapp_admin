@@ -1,5 +1,7 @@
 import type { CSSProperties } from "react";
 
+export const SCENARIO_SIDE_MENU_WIDTH = 200;
+
 export const CUSTOM_NODE_WIDTH = 200;
 export const CUSTOM_NODE_HEIGHT = 100;
 export const CUSTOM_CONNECTION_HANDLE_WIDTH = 30;

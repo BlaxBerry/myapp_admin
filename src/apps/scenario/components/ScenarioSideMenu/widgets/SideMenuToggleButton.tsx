@@ -1,6 +1,7 @@
 import { BaseIconButton } from "myapp_uilib_react";
 import { memo, type CSSProperties, type FC } from "react";
-import { RiArrowLeftDoubleLine, RiArrowRightDoubleLine } from "react-icons/ri";
+
+import { LeftDoubleArrowIcon, RightDoubleArrowIcon } from "@/common/components";
 
 export type SideMenuToggleButtonProps = {
   isShowSideMenu: boolean;
@@ -27,9 +28,9 @@ const SideMenuToggleButton: FC<SideMenuToggleButtonProps> = ({
       }}
     >
       {isShowSideMenu ? (
-        <RiArrowLeftDoubleLine style={commonIconStyle} />
+        <LeftDoubleArrowIcon style={commonIconStyle} />
       ) : (
-        <RiArrowRightDoubleLine style={commonIconStyle} />
+        <RightDoubleArrowIcon style={commonIconStyle} />
       )}
     </BaseIconButton>
   );

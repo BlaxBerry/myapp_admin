@@ -1,28 +1,15 @@
 import { memo, type FC } from "react";
-import { AiOutlineClear } from "react-icons/ai";
-import { FaRegSave } from "react-icons/fa";
-import { RiFolderDownloadLine, RiFolderUploadLine } from "react-icons/ri";
 
 import {
   BaseAccordion,
-  BaseButton,
   BaseList,
   BaseListItem,
   BasePaper,
 } from "myapp_uilib_react";
 
-const data = [
-  {
-    id: "message",
-    text: "Message",
-  },
-  {
-    id: "html",
-    text: "HTML",
-  },
-];
-
-const SCENARIO_SIDE_MENU_WIDTH = 200;
+import { MOCK_SIDE_MENU_NODES } from "../../__mocks__";
+import { SCENARIO_SIDE_MENU_WIDTH } from "../index.styles";
+import { SideMenuControlButtons } from "./widgets";
 
 const ScenarioSideMenu: FC<{
   isShowSideMenu: boolean;
@@ -58,7 +45,7 @@ const ScenarioSideMenu: FC<{
           accordionDetailsProps={{ sx: { p: 1 } }}
         >
           <BaseList>
-            {data.map((item) => (
+            {MOCK_SIDE_MENU_NODES.map((item) => (
               <BaseListItem
                 key={item.id}
                 primaryContent={item.text}
@@ -83,26 +70,7 @@ const ScenarioSideMenu: FC<{
       </div>
 
       <div style={{ width: "100%", padding: 8 }}>
-        <BaseButton sx={{ width: "100%", borderRadius: "16px", mb: 0.5 }}>
-          <RiFolderUploadLine style={{ fontSize: 23 }} />
-        </BaseButton>
-        <BaseButton sx={{ width: "100%", borderRadius: "16px", mb: 0.5 }}>
-          <RiFolderDownloadLine style={{ fontSize: 23 }} />
-        </BaseButton>
-
-        <BaseButton
-          variant="contained"
-          color="error"
-          sx={{ width: "100%", borderRadius: "16px", mb: 0.5 }}
-        >
-          <AiOutlineClear style={{ fontSize: 25 }} />
-        </BaseButton>
-        <BaseButton
-          variant="contained"
-          sx={{ width: "100%", borderRadius: "16px" }}
-        >
-          <FaRegSave style={{ fontSize: 20 }} />
-        </BaseButton>
+        <SideMenuControlButtons />
       </div>
     </BasePaper>
   );

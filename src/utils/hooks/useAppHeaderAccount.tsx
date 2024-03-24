@@ -1,7 +1,7 @@
 import { useMemo } from "react";
 import { useTranslation } from "react-i18next";
-import { IoLogOutOutline } from "react-icons/io5";
-import { MdEditNote } from "react-icons/md";
+
+import { EditIcon, LogoutIcon } from "@/common/components";
 
 export default function useAppHeaderAccount() {
   const { t } = useTranslation();
@@ -23,7 +23,7 @@ export default function useAppHeaderAccount() {
       {
         id: "account-edit",
         text: t("account.edit"),
-        icon: <MdEditNote style={{ fontSize: 25 }} />,
+        icon: <EditIcon />,
         onClick: () => {},
       },
     ],
@@ -35,7 +35,7 @@ export default function useAppHeaderAccount() {
       {
         id: "account-logout",
         text: t("account.logout"),
-        icon: <IoLogOutOutline style={{ fontSize: 22 }} />,
+        icon: <LogoutIcon />,
         onClick: () => {},
       },
     ],

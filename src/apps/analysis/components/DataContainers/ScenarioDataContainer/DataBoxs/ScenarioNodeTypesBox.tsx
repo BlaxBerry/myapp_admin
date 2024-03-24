@@ -6,9 +6,8 @@ import {
   type BasePieChartProps,
 } from "myapp_uilib_react";
 import { memo, startTransition, useState, type FC } from "react";
-import { TbSortAscending2, TbSortDescending2 } from "react-icons/tb";
 
-import { WidgetSubText } from "@/common/components";
+import { SortAscIcon, SortDescIcon, WidgetSubText } from "@/common/components";
 import { commonStyles, doubleContainerStyle } from "../../../index.styles";
 
 export type ScenarioNodeTypesBoxProps = {
@@ -60,12 +59,8 @@ const ScenarioNodeTypesBox: FC<ScenarioNodeTypesBoxProps> = ({
         }}
       >
         <CapsuleButton
-          leftButtonProps={{
-            children: <TbSortAscending2 style={{ fontSize: 20 }} />,
-          }}
-          rightButtonProps={{
-            children: <TbSortDescending2 style={{ fontSize: 20 }} />,
-          }}
+          leftButtonProps={{ children: <SortAscIcon /> }}
+          rightButtonProps={{ children: <SortDescIcon /> }}
           defaultSelected={
             isAscOrder
               ? SelectedCapsuleButton.Left

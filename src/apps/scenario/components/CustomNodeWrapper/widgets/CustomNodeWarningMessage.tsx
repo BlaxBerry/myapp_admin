@@ -1,6 +1,6 @@
-import { BaseParagraph } from "myapp_uilib_react";
 import { memo, type FC } from "react";
-import { IoIosWarning } from "react-icons/io";
+
+import { ScenarioNodeWarningIcon, WidgetSubText } from "@/common/components";
 
 const CustomNodeWarningMessage: FC = () => {
   return (
@@ -13,10 +13,8 @@ const CustomNodeWarningMessage: FC = () => {
         alignItems: "center",
       }}
     >
-      <IoIosWarning />
-      <BaseParagraph style={{ fontSize: 12, marginLeft: 4, fontWeight: 600 }}>
-        Node Data Is Not Valid
-      </BaseParagraph>
+      <ScenarioNodeWarningIcon />
+      <WidgetSubText fontWeight={600}>Node Data Is Not Valid</WidgetSubText>
     </div>
   );
 };

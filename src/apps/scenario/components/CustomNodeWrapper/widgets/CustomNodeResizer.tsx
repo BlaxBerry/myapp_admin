@@ -1,7 +1,7 @@
 import { memo, type FC } from "react";
-import { CgArrowsExpandLeft } from "react-icons/cg";
 import { NodeResizeControl } from "reactflow";
 
+import { ScenarioNodeResizerArrowIcon } from "@/common/components";
 import { CUSTOM_NODE_HEIGHT, CUSTOM_NODE_WIDTH } from "../../index.styles";
 
 const CustomNodeResizer: FC = () => {
@@ -15,14 +15,7 @@ const CustomNodeResizer: FC = () => {
         zIndex: 1,
       }}
     >
-      <CgArrowsExpandLeft
-        style={{
-          color: "#ff0071",
-          position: "absolute",
-          right: 5,
-          bottom: 5,
-        }}
-      />
+      <ScenarioNodeResizerArrowIcon />
     </NodeResizeControl>
   );
 };

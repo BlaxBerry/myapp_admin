@@ -2,12 +2,13 @@ import { useCallback, useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import { useLocation, useNavigate } from "react-router-dom";
 
-import { FiHome } from "react-icons/fi";
-import { GrAnalytics } from "react-icons/gr";
-import { LuWorkflow } from "react-icons/lu";
-import { PiChatsBold } from "react-icons/pi";
-import { TbBrandDatabricks } from "react-icons/tb";
-
+import {
+  NavAnalysisIcon,
+  NavChatIcon,
+  NavHomeIcon,
+  NavNotesIcon,
+  NavScenarioIcon,
+} from "@/common/components";
 import { APP_PATHS } from "@/router/paths";
 
 export type AppNavigationItem = {
@@ -37,31 +38,31 @@ export default function useAppNavigation() {
           link: APP_PATHS.home,
           id: "pages-home",
           text: t("pages.home"),
-          icon: <FiHome style={{ fontSize: 20 }} />,
+          icon: <NavHomeIcon />,
         },
         {
           link: APP_PATHS.analysis.root,
           id: "pages-analysis",
           text: t("pages.analysis"),
-          icon: <GrAnalytics style={{ fontSize: 20 }} />,
+          icon: <NavAnalysisIcon />,
         },
         {
           link: APP_PATHS.scenario.root,
           id: "pages-scenario",
           text: t("pages.scenario"),
-          icon: <LuWorkflow style={{ fontSize: 20 }} />,
+          icon: <NavScenarioIcon />,
         },
         {
           link: APP_PATHS.chat.root,
           id: "pages-chat",
           text: t("pages.chat"),
-          icon: <PiChatsBold style={{ fontSize: 20 }} />,
+          icon: <NavChatIcon />,
         },
         {
           link: APP_PATHS.notes.root,
           id: "pages-notes",
           text: t("pages.notes"),
-          icon: <TbBrandDatabricks style={{ fontSize: 20 }} />,
+          icon: <NavNotesIcon />,
         },
       ].map((item) => {
         return {

@@ -71,7 +71,6 @@ const AnalysisPage: FC = () => {
     />
   );
   // <>
-  //   <BaseParagraph>Analysis Page</BaseParagraph>
   //   <div>
   //     GithubRepos:&nbsp;
   //     {queryGithubRepos.isLoading ? (

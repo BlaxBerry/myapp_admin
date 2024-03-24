@@ -18,3 +18,14 @@ export const MOCK_INITIAL_EDGES: Edge[] = [
   { id: "edge3-1", source: "3", target: "1" },
   { id: "edge1-2", source: "1", target: "2" },
 ];
+
+export const MOCK_SIDE_MENU_NODES = [
+  {
+    id: "message",
+    text: "Message",
+  },
+  {
+    id: "html",
+    text: "HTML",
+  },
+];

@@ -1,23 +1,21 @@
-import { BaseParagraph } from "myapp_uilib_react";
 import { memo, type FC } from "react";
 
 import type { Scenario } from "@/apps/scenario/types";
+import { WidgetSubText } from "@/common/components";
 
 type Props = Pick<Scenario.CustomNodeWrapperProps, "id">;
 
 const CustomNodeHeadInfo: FC<Props> = ({ id }) => {
   return (
-    <BaseParagraph
+    <WidgetSubText
       style={{
         position: "absolute",
         top: 5,
         left: 10,
-        fontSize: 10,
-        color: "GrayText",
       }}
     >
       ID: {id}
-    </BaseParagraph>
+    </WidgetSubText>
   );
 };
 

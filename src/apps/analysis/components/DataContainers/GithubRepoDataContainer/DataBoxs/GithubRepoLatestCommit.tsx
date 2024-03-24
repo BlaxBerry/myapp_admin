@@ -3,11 +3,11 @@ import { memo, type FC } from "react";
 
 import { SKILLS_COLORS } from "@/apps/analysis/fixtures/constants";
 import {
+  GithubCommitIcon,
   WidgetLabel,
   WidgetSubLabel,
   WidgetSubText,
 } from "@/common/components";
-import { IoGitCommit } from "react-icons/io5";
 import { commonStyles, smallContainerStyle } from "../../../index.styles";
 
 export type GithubRepoLatestCommitProps = {
@@ -58,7 +58,7 @@ const GithubRepoLatestCommit: FC<GithubRepoLatestCommitProps> = ({
       <div>
         <WidgetSubLabel>{title}</WidgetSubLabel>
         <WidgetSubText color="GrayText" display="flex" alignItems="center">
-          <IoGitCommit style={{ marginRight: commonStyles.padding / 2 }} />
+          <GithubCommitIcon />
           {dataSource?.latestCommit}
         </WidgetSubText>
         <WidgetLabel textAlign="right">{dataSource?.repoName}</WidgetLabel>
