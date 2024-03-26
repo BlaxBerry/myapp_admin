@@ -12,5 +12,5 @@ export const smallContainerStyle = {
 
 export const doubleContainerStyle = {
   width: smallContainerStyle.width * 2 + commonStyles.padding * 2,
-  height: smallContainerStyle.height * 2,
+  height: smallContainerStyle.height * 2 + commonStyles.padding * 2,
 };

@@ -1,37 +1,25 @@
 import { memo, type FC } from "react";
 
-import { MOCK_CHART_SCENARIO_NODE_TYPES } from "@/apps/analysis/__mocks__";
 import {
-  GithubRepoDataContainer,
-  NotesDataContainer,
-  ScenarioDataContainer,
-  type GithubRepoDataContainerProps,
-} from "@/apps/analysis/components/DataContainers";
+  DataCardGroupGithubRepo,
+  DataCardGroupNotes,
+  DataCardGroupScenarioNodes,
+  type DataCardGroupGithubRepoProps,
+} from "@/apps/analysis/components/DataCardsGroups";
 import { AppFullPageContentLayout } from "@/common/layouts";
 
-export type AnalysisPageLayoutProps = Pick<
-  GithubRepoDataContainerProps,
-  "githubRepoLanguages" | "githubRepoLatest"
->;
+export type AnalysisPageLayoutProps = {
+  githubRepos: DataCardGroupGithubRepoProps;
+};
 
-const AnalysisPageLayout: FC<AnalysisPageLayoutProps> = ({
-  githubRepoLanguages,
-  githubRepoLatest,
-}) => {
+const AnalysisPageLayout: FC<AnalysisPageLayoutProps> = ({ githubRepos }) => {
   return (
     <AppFullPageContentLayout>
-      <GithubRepoDataContainer
-        title={"Github Repositories"}
-        githubRepoLanguages={githubRepoLanguages}
-        githubRepoLatest={githubRepoLatest}
-      />
+      <DataCardGroupGithubRepo {...githubRepos} />
 
-      <ScenarioDataContainer
-        title={"Scenario"}
-        scenarioNodeTypes={MOCK_CHART_SCENARIO_NODE_TYPES}
-      />
+      <DataCardGroupScenarioNodes {...githubRepos} />
 
-      <NotesDataContainer title={"Notes"} />
+      <DataCardGroupNotes {...githubRepos} />
     </AppFullPageContentLayout>
   );
 };

@@ -4,18 +4,66 @@
       "en": "英語",
       "ja": "日本語",
       "zh": "中国語"
+    },
+    "navigation": {
+      "home": "ホーム",
+      "analysis": "アナリシス",
+      "scenario": "シナリオ",
+      "chat": "チャット",
+      "notes": "ノーツ"
+    },
+    "skills": {
+      "frontend": "フロントエンド",
+      "backend": "バックエンド",
+      "all": "オール",
+      "others": "その他"
+    },
+    "github": {
+      "name": "リポジトリ名",
+      "fullName": "リポジトリフルネーム",
+      "description": "リポジトリ説明",
+      "createAt": "作成期日",
+      "latestCommit": "最新コミット期日",
+      "mainSkill": "主要な技術",
+      "topicSkills": "関連技術",
+      "links": "外部リンク"
     }
   },
-  "pages": {
-    "home": "ホーム",
-    "analysis": "アナリシス",
-    "scenario": "シナリオ",
-    "chat": "チャット",
-    "notes": "ノーツ"
-  },
+
   "account": {
     "edit": "編集",
     "login": "ログイン",
     "logout": "ログアウト"
+  },
+
+  "apps": {
+    "Analysis": {
+      "groups": {
+        "GithubRepo": "Github リポジトリ",
+        "ScenarioNodes": "シナリオノード"
+      },
+      "cards": {
+        "GithubRepoTopSkillsAmount": "使用した主要認識言語",
+        "GithubRepoLatestCommittedRepo": "最新コミットしたリポジトリ",
+        "GithubRepoList": "公開されているリポジトリのリスト",
+        "GithubRepoListSelected": "選択されたリポジトリの詳細情報",
+        "ScenarioNodeTypes": "ノードの種類と個数"
+      }
+    },
+    "Scenario": {
+      "nodeTypes": {
+        "start": "開始ード",
+        "message": "メッセージノード",
+        "html": "HTMLノード",
+        "form": "フォームノード",
+        "variables": "変数ノード",
+        "condition": "分岐ノード"
+      },
+      "nodeText": {
+        "start": "開始",
+        "type": "種類",
+        "title": "タイトル"
+      }
+    }
   }
 }

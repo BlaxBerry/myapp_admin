@@ -2,9 +2,9 @@
 import { memo, type CSSProperties } from "react";
 
 import { adminCommonStyles } from "@/styles/common";
-import { AiOutlineClear } from "react-icons/ai";
+import { AiOutlineClear, AiOutlineLink } from "react-icons/ai";
 import { CgArrowsExpandLeft } from "react-icons/cg";
-import { FaRegSave } from "react-icons/fa";
+import { FaGithub, FaRegSave } from "react-icons/fa";
 import { FiHome } from "react-icons/fi";
 import { GrAnalytics } from "react-icons/gr";
 import { IoIosWarning } from "react-icons/io";
@@ -103,9 +103,11 @@ export const NavNotesIcon = memo(() => (
  * others
  * ----------------------------------------------------------------------------------------------------
  */
+export const GithubIcon = memo(() => <FaGithub style={{ fontSize: 20 }} />);
 export const GithubCommitIcon = memo(() => (
   <IoGitCommit style={{ marginRight: 4 }} />
 ));
+export const LinkIcon = memo(() => <AiOutlineLink style={{ fontSize: 20 }} />);
 
 /**
  * scenario nodes

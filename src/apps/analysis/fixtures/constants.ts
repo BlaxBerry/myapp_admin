@@ -33,4 +33,6 @@ export const SKILLS_COLORS: Record<string, string> = {
   Python: "#2a5d93",
   Shell: "#7add40",
   Makefile: "#346714",
+
+  "": "grey", // empty label
 };

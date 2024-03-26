@@ -1,5 +1,3 @@
-import type { BasePieChartDataItem } from "myapp_uilib_react";
-
 import { SKILLS_BACKEND, SKILLS_FRONTEND, SkillArea } from "./constants";
 
 /**
@@ -15,10 +13,10 @@ export function getSkillAreaByName(skill: string): SkillArea {
  * @description 获取指定 Skill 所属的领域的相关 Github Repo 个数
  */
 export function getReposTotalBySkillAreaForPieChart(
-  dataSource: Array<BasePieChartDataItem>,
+  dataSource: Array<{ label: string } & { [key: string]: unknown }>,
   skillArea: SkillArea,
 ): number {
   return dataSource.filter(
-    (item) => getSkillAreaByName(item.label ?? "") === skillArea,
+    (item) => getSkillAreaByName(item.label) === skillArea,
   )?.length;
 }

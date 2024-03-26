@@ -4,18 +4,66 @@
       "en": "English",
       "ja": "Japanese",
       "zh": "Chinese"
+    },
+    "navigation": {
+      "home": "Home",
+      "analysis": "Analysis",
+      "scenario": "Scenario",
+      "chat": "Chat",
+      "notes": "Notes"
+    },
+    "skills": {
+      "frontend": "Frontend Skills",
+      "backend": "Backend Skills",
+      "all": "All Skills",
+      "others": "Others"
+    },
+    "github": {
+      "name": "Name",
+      "fullName": "Full Name",
+      "description": "Description",
+      "createAt": "Create At",
+      "latestCommit": "Latest Commit",
+      "mainSkill": "Main Skill",
+      "topicSkills": "Topic Skills",
+      "links": "Links"
     }
   },
-  "pages": {
-    "home": "Home",
-    "analysis": "Analysis",
-    "scenario": "Scenario",
-    "chat": "Chat",
-    "notes": "Notes"
-  },
+
   "account": {
     "edit": "Edit Account",
     "login": "Login",
     "logout": "Logout"
+  },
+
+  "apps": {
+    "Analysis": {
+      "groups": {
+        "GithubRepo": "Github Repositories",
+        "ScenarioNodes": "Scenario Nodes"
+      },
+      "cards": {
+        "GithubRepoTopSkillsAmount": "Top Skills Amount",
+        "GithubRepoLatestCommittedRepo": "Latest Committed Repo",
+        "GithubRepoList": "Public Repo List",
+        "GithubRepoListSelected": "Selected Repo Detail",
+        "ScenarioNodeTypes": "Node Types & Amounts"
+      }
+    },
+    "Scenario": {
+      "nodeTypes": {
+        "startNode": "Start Node",
+        "message": "Message Node",
+        "html": "HTML Node",
+        "form": "Form Node",
+        "variables": "Variables Node",
+        "condition": "Condition Node"
+      },
+      "nodeText": {
+        "start": "Start",
+        "type": "Types",
+        "title": "Title"
+      }
+    }
   }
 }

@@ -37,31 +37,31 @@ export default function useAppNavigation() {
         {
           link: APP_PATHS.home,
           id: "pages-home",
-          text: t("pages.home"),
+          text: t("common.navigation.home"),
           icon: <NavHomeIcon />,
         },
         {
           link: APP_PATHS.analysis.root,
           id: "pages-analysis",
-          text: t("pages.analysis"),
+          text: t("common.navigation.analysis"),
           icon: <NavAnalysisIcon />,
         },
         {
           link: APP_PATHS.scenario.root,
           id: "pages-scenario",
-          text: t("pages.scenario"),
+          text: t("common.navigation.scenario"),
           icon: <NavScenarioIcon />,
         },
         {
           link: APP_PATHS.chat.root,
           id: "pages-chat",
-          text: t("pages.chat"),
+          text: t("common.navigation.chat"),
           icon: <NavChatIcon />,
         },
         {
           link: APP_PATHS.notes.root,
           id: "pages-notes",
-          text: t("pages.notes"),
+          text: t("common.navigation.notes"),
           icon: <NavNotesIcon />,
         },
       ].map((item) => {

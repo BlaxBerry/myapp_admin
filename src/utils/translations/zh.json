@@ -4,18 +4,66 @@
       "en": "英语",
       "ja": "日语",
       "zh": "中文"
+    },
+    "navigation": {
+      "home": "首页",
+      "analysis": "数据分析",
+      "scenario": "流程计划",
+      "chat": "聊天通信",
+      "notes": "笔记本"
+    },
+    "skills": {
+      "frontend": "前端技术",
+      "backend": "后端技术",
+      "all": "全部",
+      "others": "其他"
+    },
+    "github": {
+      "name": "名称",
+      "fullName": "全部名称",
+      "description": "简介",
+      "createAt": "创建日期",
+      "latestCommit": "最新提交日期",
+      "mainSkill": "主要的技术",
+      "topicSkills": "提及的技术",
+      "links": "外部链接"
     }
   },
-  "pages": {
-    "home": "首页",
-    "analysis": "数据分析",
-    "scenario": "流程计划",
-    "chat": "聊天通信",
-    "notes": "笔记本"
-  },
+
   "account": {
     "edit": "编辑",
     "login": "登陆",
     "logout": "登出"
+  },
+
+  "apps": {
+    "Analysis": {
+      "groups": {
+        "GithubRepo": "Github 仓库",
+        "ScenarioNodes": "流程计划节点"
+      },
+      "cards": {
+        "GithubRepoTopSkillsAmount": "主要的语言数量",
+        "GithubRepoLatestCommittedRepo": "最新提交的仓库",
+        "GithubRepoList": "公开的仓库列表",
+        "GithubRepoListSelected": "所选仓库的详情信息",
+        "ScenarioNodeTypes": "节点的类型与个数"
+      }
+    },
+    "Scenario": {
+      "nodeTypes": {
+        "start": "开始节点",
+        "message": "文本信息节点",
+        "html": "HTML节点",
+        "form": "表单节点",
+        "variables": "变量节点",
+        "condition": "条件判断节点"
+      },
+      "nodeText": {
+        "start": "开始",
+        "type": "种类",
+        "title": "标题"
+      }
+    }
   }
 }
